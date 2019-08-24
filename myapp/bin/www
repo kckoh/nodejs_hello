@@ -7,13 +7,18 @@
 var app = require('../app');
 var debug = require('debug')('myapp:server');
 var http = require('http');
-
+const conn = require("../public/config.js")
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+
+conn.connect(err => {
+    if (err) throw err;
+    console.log("Mysql Connected...");
+});
 
 /**
  * Create HTTP server.
