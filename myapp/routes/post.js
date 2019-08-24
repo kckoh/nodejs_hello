@@ -6,8 +6,6 @@ const router = express.Router();
 const conn = require("../public/config.js")
 
 
-
-
 //route for listing posts
 router.get("/:id", (req,res) => {
 	if(req.params.id == req.session.user_id){

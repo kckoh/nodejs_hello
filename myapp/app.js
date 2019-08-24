@@ -22,8 +22,6 @@ const register = require("./routes/register.js")
 
 const post = require("./routes/post.js")
 
-
-
 var app = express();
 
 // view engine setup
@@ -47,8 +45,14 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register',register);
+app.use('/login', login)
+//prodcut routes
+app.use("/product", product);
 
+//register routes
+app.use("/register", register);
 
+app.use("/", post);
 
 
 // catch 404 and forward to error handler
